@@ -3,6 +3,7 @@ import Header from '../Header'
 import {useState} from 'react'
 import ToDoBox from './ToDoBox'
 import useLocalStorage from './useLocalStorage'
+import ToDoForm from './ToDoForm'
 
 export default function ToDoSection() {
 
@@ -39,11 +40,7 @@ export default function ToDoSection() {
   return (
     <div className='box'>
           <Header title='TO DO LIST' subtitle='Make a list and stick to it'/>
-          <form onSubmit={handleSubmit}>
-            <input value={input} type='text' placeholder='Add a new task' onChange={handleInput}/>
-            <button type='submit'>Add</button>
-            <button onClick={handleClear}>Clear</button>
-          </form>
+          <ToDoForm value={input} onChange={handleInput} onSubmit={handleSubmit} onClick={handleClear}/>
           <div className='todo-box'>
             {toDoList.map((item, index) => (
               <ToDoBox item={item} index={index}  handleClick={handleFinishItem} />

@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../Header'
 import Note from './Note'
 import {useState} from 'react'
+import useLocalStorage from './useLocalStorageNote'
+import NotoForm from './NotoForm'
 
 export default function NotesSection() {
 
@@ -11,7 +13,7 @@ export default function NotesSection() {
     content: ""
   })
  
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useLocalStorage("note-items", [])
 
   function changeTitle(event) {
     const {value} = event.target
@@ -34,14 +36,24 @@ export default function NotesSection() {
   }
 
   function handleClick(event) {
+    if(input.title !== '' && input.content !== ''){
     setNotes(prevNotes => {
       return [...prevNotes, input]
     })
     setInput({
-      title: "",
+      title:  "",
       content: ""
     })
-    event.preventDefault()
+  } 
+  event.preventDefault()
+  }
+
+  function deleteNote (id) {
+    setNotes(prevNotes => {
+      return prevNotes.filter((note, index) => {
+        return index !== id
+      })
+    })
   }
   
 
@@ -51,14 +63,10 @@ export default function NotesSection() {
   return (
     <div className='box'>
         <Header title='NOTES' subtitle='Make some notes'/>
-          <form>
-            <input value={notes.title}  type='text' placeholder='Add a new task' onChange={changeTitle}/>
-            <textarea value={notes.content}  type='text' placeholder='Add a new task' onChange={changeContent}/>
-            <button type='submit' onClick={handleClick}>Add</button>
-          </form>
+        <NotoForm valueinput={input.title} valuetext={input.content} onChangeTitle={changeTitle} onChangeContent={changeContent} onClick={handleClick}/>
           <div className='note'>
             {notes.map((noteItem, index) => {
-              return <Note key={index} title={noteItem.title} content={noteItem.content}/>
+              return <Note key={index} id={index} title={noteItem.title} content={noteItem.content} onDelete={deleteNote}/>
             })}
             
           </div>
