@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../Header'
 import Note from './Note'
 import {useState} from 'react'
-import useLocalStorage from './useLocalStorageNote'
+import useLocalStorage from '../useLocalStorage'
 import NotoForm from './NotoForm'
 
 export default function NotesSection() {

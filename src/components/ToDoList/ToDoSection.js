@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../Header'
 import {useState} from 'react'
 import ToDoBox from './ToDoBox'
-import useLocalStorage from './useLocalStorage'
+import useLocalStorage from '../useLocalStorage'
 import ToDoForm from './ToDoForm'
 
 export default function ToDoSection() {
