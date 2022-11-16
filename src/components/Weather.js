@@ -1,5 +1,8 @@
 import React from 'react'
 
+
+//Wyświetlenie pogody z API
+
 export default function Weather() {
   return (
     <div className='weather'>

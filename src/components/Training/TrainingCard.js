@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import trainingData from '../../data/trainingData';
+import trainingData from '../../data/trainingData'; //Import danych z pliku trainingData.js
 
 export default function TrainingCard() {
 
@@ -11,7 +11,7 @@ export default function TrainingCard() {
         return setShowMore(false);
       }
       setShowMore(index);
-    }
+    } //Pokazanie więcej informacji o treningu
 
   return (
     <div className='card-container'>
@@ -24,9 +24,11 @@ export default function TrainingCard() {
               </div>
               <div className='showMore'>{showMore === index ? '-' : '+'}</div>
             </div>
-       {showMore === index && <div className="card-description">{description}</div>}
+       {showMore === index && <div className="card-description">{description}</div> 
+       //Wyświetlenie dodatkowych informacji o treningu
+       } 
         </div>
-      ))}
+      ))} 
       </div>
     
   )

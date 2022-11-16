@@ -10,7 +10,7 @@ export default function Clock() {
             const time = new Date().toLocaleTimeString();
             setCurrentTime(time);
         }, 1000);
-    },[])
+    },[]) //Ustawienie czasu w czasie rzeczywistym
 
   return (
     <div className='clock'>

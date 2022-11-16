@@ -9,12 +9,12 @@ export default function ToDoSection() {
 
 
     const [input, setInput] = useState('')
-    const [toDoList, setToDoList] = useLocalStorage("todo-items", [])
+    const [toDoList, setToDoList] = useLocalStorage("todo-items", []) 
 
 
     const handleInput = (e) => {
         setInput(e.target.value)
-    }
+    } //Ustawienie wartości inputa
 
 
     const handleSubmit = (e) => {
@@ -24,18 +24,18 @@ export default function ToDoSection() {
       }
       setInput('')
     
-    }
+    } //Dodanie notatki do tablicy
 
     const handleFinishItem = (e) => {
       e.preventDefault()
       setToDoList(toDoList.filter((item, index) => index !== e.target.value))
 
-    }
+    } //Usuwanie elementu z tablicy
 
     const handleClear = (e) => {
       e.preventDefault()
       setToDoList([])
-    }
+    } //Usuwanie wszystkich elementów z tablicy
 
   return (
     <div className='box'>
@@ -43,8 +43,8 @@ export default function ToDoSection() {
           <ToDoForm value={input} onChange={handleInput} onSubmit={handleSubmit} onClick={handleClear}/>
           <div className='todo-box'>
             {toDoList.map((item, index) => (
-              <ToDoBox item={item} index={index}  handleClick={handleFinishItem} />
-            ))}
+              <ToDoBox item={item} index={index}  handleClick={handleFinishItem} /> //Wyświetlenie elementów tablicy
+            ))} 
           </div>
           <div>
             <h2>You have <span>{toDoList.length}</span> tasks to do</h2>

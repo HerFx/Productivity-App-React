@@ -1,5 +1,9 @@
 import {useState}   from 'react'  
 
+
+//Zapisanie danych w localStorage przeglądarki
+
+
 const useLocalStorage = (key, initialValue) => {
 
     const [storedValue, setStoredValue] = useState(() => {
@@ -26,3 +30,5 @@ const setValue = value => {
 }
 
 export default useLocalStorage;
+
+

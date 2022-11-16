@@ -12,7 +12,7 @@ export default function NotesSection() {
     title: "",
     content: ""
   })
- 
+
   const [notes, setNotes] = useLocalStorage("note-items", [])
 
   function changeTitle(event) {
@@ -23,7 +23,7 @@ export default function NotesSection() {
         content: prevInput.content
       }
     })
-  }
+  } //Ustawienie tytułu notatki
 
   function changeContent(event) {
     const {value} = event.target
@@ -33,7 +33,7 @@ export default function NotesSection() {
         content: value
       }
     })
-  }
+  } //Ustawienie treści notatki
 
   function handleClick(event) {
     if(input.title !== '' && input.content !== ''){
@@ -46,7 +46,7 @@ export default function NotesSection() {
     })
   } 
   event.preventDefault()
-  }
+  } //Dodanie notatki do tablicy
 
   function deleteNote (id) {
     setNotes(prevNotes => {
@@ -54,7 +54,7 @@ export default function NotesSection() {
         return index !== id
       })
     })
-  }
+  }//Usuwanie notatki z tablicy
   
 
 
@@ -66,7 +66,7 @@ export default function NotesSection() {
         <NotoForm valueinput={input.title} valuetext={input.content} onChangeTitle={changeTitle} onChangeContent={changeContent} onClick={handleClick}/>
           <div className='note'>
             {notes.map((noteItem, index) => {
-              return <Note key={index} id={index} title={noteItem.title} content={noteItem.content} onDelete={deleteNote}/>
+              return <Note key={index} id={index} title={noteItem.title} content={noteItem.content} onDelete={deleteNote}/> //Wyświetlenie notatek
             })}
             
           </div>
