@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Productivity-App-React/static/css/main.a2cabeeb.css",
+    "main.js": "/Productivity-App-React/static/js/main.e7d366a1.js",
+    "static/media/profile.jpg": "/Productivity-App-React/static/media/profile.80367f25c13d09877239.jpg",
+    "static/media/bgnv2.png": "/Productivity-App-React/static/media/bgnv2.31de26ffcf98bdfc308e.png",
+    "index.html": "/Productivity-App-React/index.html",
+    "main.a2cabeeb.css.map": "/Productivity-App-React/static/css/main.a2cabeeb.css.map",
+    "main.e7d366a1.js.map": "/Productivity-App-React/static/js/main.e7d366a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2cabeeb.css",
+    "static/js/main.e7d366a1.js"
+  ]
+}
